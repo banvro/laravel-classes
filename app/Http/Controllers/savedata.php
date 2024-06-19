@@ -8,6 +8,7 @@ class savedata extends Controller
 {
     function saveing_my_data(Request $request){
 
+        // echo "$request";
         $request->validate([
             'usernmae'=> 'required|min:3|max:8',
             'fname' => 'required',
