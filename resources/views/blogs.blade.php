@@ -1,5 +1,9 @@
 @extends('base')
 
+
+@section('mytitle', 'Blog')
+    
+
 @section('mybodyblock')
 
 <div style="padding-left: 10%; padding-right: 10%; padding-top: 23px;">

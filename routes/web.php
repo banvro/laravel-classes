@@ -16,3 +16,6 @@ Route::view("/contact", "contact");
 Route::view("/services", "services");
 
 Route::view("/blog", "blogs");
+
+
+Route::post("/save-info", 'App\Http\Controllers\savedata@saveing_my_data');
