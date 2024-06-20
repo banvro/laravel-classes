@@ -13,6 +13,7 @@ class savedata extends Controller
             'usernmae'=> 'required|min:3|max:8',
             'fname' => 'required',
             'email' => 'required|email',
+            'pnumber' => 'required|min:10|max:12'
         ]);
 
         echo "data saved sucessfuly";

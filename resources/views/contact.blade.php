@@ -43,6 +43,11 @@ padding-top: 38px;">
           <label for="exampleInputEmail1" class="form-label">Phone Number</label>
           <input type="number" name="pnumber" class="form-control" placeholder="Enter your phone number">
         </div>
+        <div style="color: red">
+          @error('pnumber')
+              {{$message}}
+          @enderror
+        </div>
         
         <div style="text-align: center;">
             <button type="submit" class="btn btn-primary">Save Data</button>
