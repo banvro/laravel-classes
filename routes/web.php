@@ -13,12 +13,12 @@ Route::view("/about", "about");
 
 Route::view("/contact", "contact");
 
-Route::view("/services", "services");
+Route::view("/services", "services"); 
 
 Route::view("/blog", "blogs");
 
 
-Route::post("/save-info", 'App\Http\Controllers\savedata@saveing_my_data');
+Route::post("/save-info", 'App\Http\Controllers\NewcontactController@store');
 
 Route::get("/test", function(){
     return  view("test");

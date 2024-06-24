@@ -9,7 +9,7 @@
 
 @section('mybodyblock')
 
-<div style="padding-left: 12%;
+<div style="padding-left: 12%; 
 padding-right: 12%;
 padding-top: 38px;">
     <h2 style="text-align: center;
