@@ -60,7 +60,7 @@ class NewcontactController extends Controller
      */
     public function show(newcontact $newcontact)
     {
-        //
+        return view('about')->with('allcontactus', newcontact::all());
     }
 
     /**

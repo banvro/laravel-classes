@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::view("/", "home");
 
-Route::view("/about", "about");
+// Route::view("/about", "about");
+Route::get("/about", "App\Http\Controllers\NewcontactController@show");
 
 Route::view("/contact", "contact");
 
