@@ -28,7 +28,23 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'dec' => 'required'
+        ]);
+
+        $my_title = $request->input('title');
+        $my_dec = $request->input('dec');
+
+        // echo "$my_title   $my_dec";
+        $todo = new todo();
+        $todo->title = $my_title;
+        $todo->description = $my_dec;
+        $todo->save();
+
+        
+        // return redirect()->route('home');
+        return redirect('/');
     }
 
     /**
@@ -36,7 +52,8 @@ class TodoController extends Controller
      */
     public function show(todo $todo)
     {
-        //
+        // return view("home");
+        return view("home")->with("alltodos", todo::all());
     }
 
     /**

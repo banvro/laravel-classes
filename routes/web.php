@@ -8,4 +8,6 @@ Route::get('/xyz', function () {
 
 
 
-Route::view("/", "home");
+Route::get("/", "App\Http\Controllers\TodoController@show");
+
+Route::post("/save-data", "App\Http\Controllers\TodoController@store");

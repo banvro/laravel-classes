@@ -22,14 +22,25 @@
     <div style="padding-left: 16%; padding-right: 16%; padding-top: 26px;">
         <h1 style="margin-bottom: 18px;
     text-align: center; color: green;">Add Todo</h1>
-        <form action="" method="">
+        <form action="/save-data" method="post">
+          @csrf
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your todo title....">
+            <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Enter your todo title....">
+          </div>
+          <div style="color: red">
+            @error('title')
+                {{$message}}
+            @enderror
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell about your todo in breif..."></textarea>
+            <textarea class="form-control" name="dec" id="exampleFormControlTextarea1" rows="3" placeholder="Tell about your todo in breif..."></textarea>
+          </div>
+          <div style="color: red">
+            @error('dec')
+                {{$message}}
+            @enderror
           </div>
 
           <div style="text-align: center">
@@ -37,6 +48,40 @@
           </div>
         </form>
     </div>
+
+    <hr>
+
+
+    <div style="padding-left: 14%;
+    padding-right: 14%;
+    margin-top: 30px;">
+      <h1 style="text-align: center;
+    color: green;
+    margin-bottom: 17px;">All Todos</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Added Date</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          @foreach ($alltodos as $todo)
+          <tr>
+            <th scope="row">{{$todo->id}}</th>
+            <td>{{$todo->title}}</td>
+            <td>{{$todo->description}}</td>
+            <td>{{$todo->created_at}}</td>
+          </tr>
+          @endforeach
+         
+        </tbody>
+      </table>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
