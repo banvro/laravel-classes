@@ -65,16 +65,22 @@
             <th scope="col">Title</th>
             <th scope="col">Description</th>
             <th scope="col">Added Date</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-
+ 
           @foreach ($alltodos as $todo)
           <tr>
             <th scope="row">{{$todo->id}}</th>
             <td>{{$todo->title}}</td>
             <td>{{$todo->description}}</td>
             <td>{{$todo->created_at}}</td>
+            <td style="display: flex; justify-content: space-between;">
+              <a href=""><button type="button" class="btn btn-success">Update</button></a>
+              <a href="/delete-todo/{{$todo->id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+              
+            </td>
           </tr>
           @endforeach
          

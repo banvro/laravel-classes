@@ -11,3 +11,5 @@ Route::get('/xyz', function () {
 Route::get("/", "App\Http\Controllers\TodoController@show");
 
 Route::post("/save-data", "App\Http\Controllers\TodoController@store");
+
+Route::get("/delete-todo/{myid}", "App\Http\Controllers\TodoController@destroy");

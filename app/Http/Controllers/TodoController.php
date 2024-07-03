@@ -47,7 +47,7 @@ class TodoController extends Controller
         return redirect('/');
     }
 
-    /**
+    /** 
      * Display the specified resource.
      */
     public function show(todo $todo)
@@ -75,8 +75,12 @@ class TodoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(todo $todo)
+    public function destroy(todo $todo, $myid)
     {
-        //
+        // echo " data deleted";
+        // echo "$myid";
+        todo::destroy(array("id", $myid));
+        
+        return redirect('/');
     }
 }
