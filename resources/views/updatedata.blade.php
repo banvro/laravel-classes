@@ -18,15 +18,17 @@
         </div>
       </nav>
 
+      {{-- {{$singlerecord}} --}}
+
 
     <div style="padding-left: 16%; padding-right: 16%; padding-top: 26px;">
         <h1 style="margin-bottom: 18px;
-    text-align: center; color: green;">Add Todo</h1>
-        <form action="/save-data" method="post">
+    text-align: center; color: green;">Update Todo</h1>
+        <form action="/update-data/{{$singlerecord->id}}" method="post">
           @csrf
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Enter your todo title....">
+            <input type="text" value="{{$singlerecord->title}}" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Enter your todo title....">
           </div>
           <div style="color: red">
             @error('title')
@@ -35,7 +37,7 @@
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-            <textarea class="form-control" name="dec" id="exampleFormControlTextarea1" rows="3" placeholder="Tell about your todo in breif..."></textarea>
+            <textarea class="form-control" name="dec" id="exampleFormControlTextarea1" rows="3" placeholder="Tell about your todo in breif...">{{$singlerecord->description}}</textarea>
           </div>
           <div style="color: red">
             @error('dec')
@@ -44,7 +46,7 @@
           </div>
 
           <div style="text-align: center">
-            <button type="submit" class="btn btn-success">Add Todo</button>
+            <button type="submit" class="btn btn-success">Update</button>
           </div>
         </form>
     </div>
@@ -52,7 +54,7 @@
     <hr>
 
 
-    <div style="padding-left: 14%;
+    {{-- <div style="padding-left: 14%;
     padding-right: 14%;
     margin-top: 30px;">
       <h1 style="text-align: center;
@@ -77,7 +79,7 @@
             <td>{{$todo->description}}</td>
             <td>{{$todo->created_at}}</td>
             <td style="display: flex; justify-content: space-between;">
-              <a href="/show-todo-detail/{{$todo->id}}"><button type="button" class="btn btn-success">Update</button></a>
+              <a href=""><button type="button" class="btn btn-success">Update</button></a>
               <a href="/delete-todo/{{$todo->id}}"><button type="button" class="btn btn-danger">Delete</button></a>
               
             </td>
@@ -86,7 +88,7 @@
          
         </tbody>
       </table>
-    </div>
+    </div> --}}
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

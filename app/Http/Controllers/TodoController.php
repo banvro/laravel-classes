@@ -59,17 +59,26 @@ class TodoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(todo $todo)
+    public function edit(Request $request, todo $todo, $id)
     {
-        //
+        $my_title = $request->input('title');
+        $my_dec = $request->input('dec');
+
+        $todo = todo::find($id);
+        $todo->title = $my_title;
+        $todo->description = $my_dec;
+        $todo->save();
+
+        return redirect("/");
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, todo $todo)
+    public function update(Request $request, todo $todo, $hey)
     {
-        //
+        // echo "$hey";
+        return view("updatedata")->with("singlerecord", todo::find($hey));
     }
 
     /**
