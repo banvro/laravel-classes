@@ -22,7 +22,7 @@
     <div style="padding-left: 16%; padding-right: 16%; padding-top: 26px;">
         <h1 style="margin-bottom: 18px;
     text-align: center; color: green;">Add Todo</h1>
-        <form action="/save-data" method="post">
+        <form action="/save-data" method="post" enctype="multipart/form-data">
           @csrf
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
@@ -39,6 +39,16 @@
           </div>
           <div style="color: red">
             @error('dec')
+                {{$message}}
+            @enderror
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Upload Image</label>
+            <input type="file" class="form-control" name="img" id="exampleFormControlInput1">
+          </div>
+          <div style="color: red">
+            @error('img')
                 {{$message}}
             @enderror
           </div>
@@ -64,6 +74,7 @@
             <th scope="col">#</th>
             <th scope="col">Title</th>
             <th scope="col">Description</th>
+            <th scope="col">Image</th>
             <th scope="col">Added Date</th>
             <th scope="col">Action</th>
           </tr>
@@ -75,6 +86,7 @@
             <th scope="row">{{$todo->id}}</th>
             <td>{{$todo->title}}</td>
             <td>{{$todo->description}}</td>
+            <td><img src="{{$todo->image_path}}" alt=""></td>
             <td>{{$todo->created_at}}</td>
             <td style="display: flex; justify-content: space-between;">
               <a href="/show-todo-detail/{{$todo->id}}"><button type="button" class="btn btn-success">Update</button></a>

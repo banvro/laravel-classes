@@ -30,8 +30,13 @@ class TodoController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'dec' => 'required'
+            'dec' => 'required',
+            'img' => 'required'
         ]);
+
+        $myImage = $request->file('img')->move("media", "xyz.jpg");
+        // echo "$myImage";
+
 
         $my_title = $request->input('title');
         $my_dec = $request->input('dec');
@@ -40,6 +45,7 @@ class TodoController extends Controller
         $todo = new todo();
         $todo->title = $my_title;
         $todo->description = $my_dec;
+        $todo->image_path = $myImage;
         $todo->save();
 
         
