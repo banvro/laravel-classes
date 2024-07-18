@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Usercheck
+class CountryCheck
 {
     /**
      * Handle an incoming request.
@@ -15,13 +15,9 @@ class Usercheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        
-        // print_r($request->age<20);
-        
-        if($request->age<20){
-            die("you are not autorize to access this page");
-        }
-
+        if ($request->country != 'india') {
+            die("you are not autorize to access this page at this country..");
+        };
 
         return $next($request);
     }

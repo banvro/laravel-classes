@@ -26,6 +26,7 @@ Route::view("/route1", "route1");
 Route::view("/route2", "route2");
 
 Route::view("/route3", "route3");
+Route::view("/denid", "denid");
 
 
 

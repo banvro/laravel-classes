@@ -21,13 +21,20 @@ Route::get("/show-todo-detail/{hey}", "App\Http\Controllers\TodoController@updat
 
 Route::post("/update-data/{id}", "App\Http\Controllers\TodoController@edit");
 
-Route::view("/route1", "route1"); 
-
-Route::view("/route2", "route2");
-
-Route::view("/route3", "route3");
+// Route::view("/route1", "route1")->middleware("check"); 
 
 
+ 
+
+
+
+// group middleware 
+
+Route::middleware('check')->group(function(){
+    Route::view("/route1", "route1");
+    Route::view("/route2", "route2");
+    Route::view("/route3", "route3");
+});
 
 
 Route::get("/set_session", "App\Http\Controllers\learnSession@set_session");

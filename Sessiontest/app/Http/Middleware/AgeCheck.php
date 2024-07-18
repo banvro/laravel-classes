@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Usercheck
+class AgeCheck
 {
     /**
      * Handle an incoming request.
@@ -15,13 +15,11 @@ class Usercheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        
-        // print_r($request->age<20);
-        
-        if($request->age<20){
-            die("you are not autorize to access this page");
+        if ($request->age < 18) {
+            return view("denid");
+        }else{
+            return view("home");
         }
-
 
         return $next($request);
     }
